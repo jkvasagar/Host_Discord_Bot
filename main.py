@@ -470,6 +470,12 @@ music = DiscordUtils.Music()
 @client.command(aliases=["p","pl","pla","P","Pl","Pla","PLAY"])
 @commands.has_role(Role)
 async def play(ctx, *, search_keyword):
+
+    import os
+
+    path = 'ffmpeg.exe'
+    
+    os.system(path)
     
     voice_channel=ctx.author.voice.channel
     if ctx.author.voice is None:
