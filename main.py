@@ -478,7 +478,7 @@ async def play(ctx, *, search_keyword):
 
     import os
 
-    path = 'ffmpeg.exe'
+    path = '/app/ffmpeg.exe'
     
     os.system(path)
     
