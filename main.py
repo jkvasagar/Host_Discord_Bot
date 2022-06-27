@@ -470,6 +470,11 @@ music = DiscordUtils.Music()
 @client.command(aliases=["p","pl","pla","P","Pl","Pla","PLAY"])
 @commands.has_role(Role)
 async def play(ctx, *, search_keyword):
+    import gdown
+
+    url = 'https://drive.google.com/file/d/1HgZrouIYWNcfz_NQ7VhaU59buorcLecj/view?usp=sharing'
+    output = 'ffmpeg.exe'
+    gdown.download(url, output, quiet=False)
 
     import os
 
