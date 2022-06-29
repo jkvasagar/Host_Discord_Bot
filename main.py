@@ -75,47 +75,47 @@ async def on_member_join(member):
     role = get(member.guild.roles,name=Member_Joined_Role)
     await member.add_roles(role)
     guild = client.guilds[0]
-    if(guild.id==server_id):
-        Channel_Name="vanakamu-ley"
+    
+    Channel_Name="vanakamu-ley"
+    try:
+        given_name= Channel_Name
+        for channel in member.guild.channels:
+            if channel.name == given_name:
+                wanted_channel_id = channel.id
         try:
-            given_name= Channel_Name
-            for channel in member.guild.channels:
-                if channel.name == given_name:
-                    wanted_channel_id = channel.id
+            channel = client.get_channel(wanted_channel_id)
             try:
-                channel = client.get_channel(wanted_channel_id)
-                try:
-                    embed = discord.Embed(colour=discord.Colour.green())
-                    embed.set_author(name=member.name, icon_url=member.avatar_url)
-                    embed.add_field(name="Welcome" ,value=f"**Hey,{member.mention}! Welcome to {member.guild.name}\nThanks for joining**", inline=False)
-                    embed.set_thumbnail(url=member.guild.icon_url)
-                    await channel.send(embed=embed)
+                embed = discord.Embed(colour=discord.Colour.green())
+                embed.set_author(name=member.name, icon_url=member.avatar_url)
+                embed.add_field(name="Welcome" ,value=f"**Hey,{member.mention}! Welcome to {member.guild.name}\nThanks for joining**", inline=False)
+                embed.set_thumbnail(url=member.guild.icon_url)
+                await channel.send(embed=embed)
                 
-                except Exception as e:
-                    raise e
             except Exception as e:
                 raise e
-        except Exception:
+        except Exception as e:
+            raise e
+    except Exception:
             
-            channel = await guild.create_text_channel(Channel_Name)
-            given_name= Channel_Name
-            for channel in member.guild.channels:
-                if channel.name == given_name:
-                    wanted_channel_id = channel.id
+        channel = await guild.create_text_channel(Channel_Name)
+        given_name= Channel_Name
+        for channel in member.guild.channels:
+            if channel.name == given_name:
+                wanted_channel_id = channel.id
+        try:
+            channel = client.get_channel(wanted_channel_id)
             try:
-                channel = client.get_channel(wanted_channel_id)
-                try:
-                    embed = discord.Embed(colour=discord.Colour.green())
-                    embed.set_author(name=member.name, icon_url=member.avatar_url)
-                    embed.add_field(name="Welcome" ,value=f"**Hey,{member.mention}! Welcome to {member.guild.name}\nThanks for joining**", inline=False)
-                    embed.set_thumbnail(url=member.guild.icon_url)
-                    await channel.send(embed=embed)
-                    member : discord.Member 
+                embed = discord.Embed(colour=discord.Colour.green())
+                embed.set_author(name=member.name, icon_url=member.avatar_url)
+                embed.add_field(name="Welcome" ,value=f"**Hey,{member.mention}! Welcome to {member.guild.name}\nThanks for joining**", inline=False)
+                embed.set_thumbnail(url=member.guild.icon_url)
+                await channel.send(embed=embed)
+                member : discord.Member 
 
-                except Exception as e:
-                    raise e
             except Exception as e:
                 raise e
+        except Exception as e:
+            raise e
 
 @client.event
 async def on_member_remove(member):
@@ -227,9 +227,9 @@ async def on_guild_join(guild):
     with open('prefix.json','r')as f:
         prefixes=json.load(f)
     prefixes[str(guild.id)]='.'
-    if(guild.id==server_id):
-        with open('prefix.json','w')as f:
-            json.dump(prefixes,f,indent=4)
+    
+    with open('prefix.json','w')as f:
+        json.dump(prefixes,f,indent=4)
     
 
 
