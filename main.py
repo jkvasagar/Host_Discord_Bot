@@ -715,7 +715,7 @@ async def chRoleName(ctx,name):
         await ctx.send("You Can't Change Welcome Role")
 
     
-TOKEN = 'OTU4NzQ4MjkwMjM5ODQ0NDIy.Gw8Uqg.ps0vdrazlvSY9xLbXk-w566DBrC63HX6TN4tac'
+TOKEN = 'OTU4NzQ4MjkwMjM5ODQ0NDIy.Gw8Uqg.ps0vdrazlvSY9xLbXk-w5666TN4tac'
 
 client.run(TOKEN)
 
